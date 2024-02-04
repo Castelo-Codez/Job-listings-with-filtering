@@ -7,7 +7,9 @@ import NewSpan from "./NewSpan.vue";
 import MainTitle from "./MainTitle.vue";
 import TimeLocation from "./TimeLocation.vue";
 import CompanyTitle from "./CompanyTitle.vue";
-
+import {onMounted} from "vue";
+import Aos from "aos";
+import "aos/dist/aos.css";
 const $props = defineProps({
     id: Number,
     company: String,
@@ -25,9 +27,17 @@ const $props = defineProps({
 });
 let $skills = [...$props.languages, ...$props.tools];
 let $mergedSkills = $Merge($props.role, $props.level, $skills);
+onMounted(() => {
+    Aos.init();
+    Aos.init({
+        offset: 110, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 200,
+    });
+});
 </script>
 <template>
-    <li role="listitem" :key="$props.id" class="card">
+    <li role="listitem" :key="$props.id" class="card" data-aos="fade-up">
         <div class="logo">
             <img :src="$props.logo" alt="logo" />
         </div>

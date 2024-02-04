@@ -29,17 +29,17 @@ form {
     background-color: white;
     border-radius: var(--main-radius);
     @extend%main-box-shadow;
-    @extend%main-transition;
-    transform: translateY(4px);
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-property: transform opacity;
+    transform: translate3d(0px, 200px, 0px);
     opacity: 0;
     margin-bottom: $main-space;
     visibility: visible;
 
     &.active {
         opacity: 1;
-        transform: translateY(0);
-
-        visibility: visible;
+        transform: translateZ(0);
     }
     .parent {
         display: flex;
