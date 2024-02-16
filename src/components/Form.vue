@@ -4,20 +4,28 @@ import FilterBtn from "./FilterBtn.vue";
 </script>
 <template>
     <form
+        role="form"
+        aria-label="filtering form"
         :class="{active: $store.searchingArr.length ? true : false}"
         @submit="(e) => e.preventDefault()"
     >
         <div class="parent">
-            <ul role="list">
+            <ul role="list" aria-label="list of Jobs">
                 <li
                     role="listitem"
                     v-for="($el, $key) in $store.searchingArr"
                     :key="$key"
+                    aria-label="job"
                 >
                     <FilterBtn :content="$el" />
                 </li>
             </ul>
-            <button role="button" @click="$store.searchingArr.length = 0">
+            <button
+                role="button"
+                aria-label="clear Button"
+                type="button"
+                @click="$store.searchingArr.length = 0"
+            >
                 clear
             </button>
         </div>

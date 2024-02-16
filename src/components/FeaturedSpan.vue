@@ -2,7 +2,7 @@
 defineProps(["content"]);
 </script>
 <template>
-    <span class="featers"> Featured </span>
+    <span class="featers" aria-label="Featured"> Featured </span>
 </template>
 <style lang="scss" scoped>
 @import "../style/globals";

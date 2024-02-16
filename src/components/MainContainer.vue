@@ -4,10 +4,15 @@ import JobCard from "./JobCard.vue";
 import Form from "./Form.vue";
 </script>
 <template>
-    <main>
+    <main role="main" aria-label="main content">
         <div class="container">
             <Form />
-            <TransitionGroup name="list" tag="ul">
+            <TransitionGroup
+                name="list"
+                tag="ul"
+                aria-label="list of jobs"
+                role="list"
+            >
                 <JobCard
                     v-for="job in $store.mainArr"
                     :id="job.id"

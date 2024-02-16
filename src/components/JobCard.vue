@@ -37,25 +37,39 @@ onMounted(() => {
 });
 </script>
 <template>
-    <li role="listitem" :key="$props.id" class="card" data-aos="fade-up">
-        <div class="logo">
-            <img :src="$props.logo" alt="logo" />
+    <li
+        role="listitem"
+        :key="$props.id"
+        class="card"
+        data-aos="fade-up"
+        aria-label="job card"
+    >
+        <div class="logo" aria-label="logo wrapper">
+            <img :src="$props.logo" alt="logo" role="img" aria-label="logo" />
         </div>
-        <div class="mainInfo">
+        <div class="mainInfo" aria-label="content wrapper">
             <div class="layer-1">
-                <ul role="list">
-                    <li role="listitem">
+                <ul role="list" aria-label="sec info">
+                    <li role="listitem" aria-label="company's Name">
                         <CompanyTitle :content="$props.company" />
                     </li>
-                    <li role="listitem" v-if="$props.new">
+                    <li
+                        role="listitem"
+                        v-if="$props.new"
+                        aria-label="New or Not"
+                    >
                         <NewSpan />
                     </li>
-                    <li role="listitem" v-if="$props.featured">
+                    <li
+                        role="listitem"
+                        v-if="$props.featured"
+                        aria-label="featured"
+                    >
                         <FeaturedSpan />
                     </li>
                 </ul>
                 <MainTitle :content="$props.position" />
-                <ul role="list">
+                <ul role="list" aria-label="time & location">
                     <TimeLocation
                         :content="$el"
                         :key="$key"
@@ -68,8 +82,12 @@ onMounted(() => {
                 </ul>
             </div>
             <div class="layer-2">
-                <ul role="list">
-                    <li role="listitem" v-for="$el in $mergedSkills">
+                <ul role="list" aria-label="stacks">
+                    <li
+                        role="listitem"
+                        :aria-label="`${$el}`"
+                        v-for="$el in $mergedSkills"
+                    >
                         <PrimaryBtn :content="$el" />
                     </li>
                 </ul>
@@ -109,6 +127,7 @@ li {
         top: -21px;
         img {
             width: 100%;
+            height: 100%;
         }
         @media (min-width: 991.5px) {
             position: static;
@@ -162,7 +181,5 @@ li {
             }
         }
     }
-}
-li {
 }
 </style>

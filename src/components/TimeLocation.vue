@@ -2,7 +2,7 @@
 defineProps(["content"]);
 </script>
 <template>
-    <li role="listitem">
+    <li role="listitem" aria-label="time & location info ">
         {{ content }}
     </li>
 </template>

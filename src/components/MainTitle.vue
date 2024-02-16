@@ -2,7 +2,7 @@
 defineProps(["content"]);
 </script>
 <template>
-    <h2>{{ content }}</h2>
+    <h2 aria-label="job title" role="heading" aria-level="2">{{ content }}</h2>
 </template>
 <style lang="scss" scoped>
 @import "../style/globals";

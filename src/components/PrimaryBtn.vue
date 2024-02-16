@@ -9,7 +9,13 @@ function addFilter() {
 }
 </script>
 <template>
-    <button class="primary-btn" @click="addFilter">
+    <button
+        class="primary-btn"
+        aria-label="add filter"
+        role="button"
+        type="button"
+        @click="addFilter"
+    >
         {{ content }}
     </button>
 </template>
